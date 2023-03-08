@@ -1,19 +1,17 @@
-function ready() 
+const num = +prompt("Digite um número?")
+
+for (let i = 2; i <= num; i++) 
 {
-    num = prompt("Insira um numero")
-    let res = `Os numeros primos entre 2 e ${num} são: `
-    if (num >= 2)
+    let isPrime = true
+    for (let j = 2; j <= i - 1; j++) 
     {
-        console.log("Numero Valido")
-        for (let i = 2; i < Number(num) + 1; i++)
+        if (i % j == 0) 
         {
-            console.log(i)
-            if (i % 2 == 0)
-            {
-                
-            }
+            isPrime = false
         }
-        console.log(res)
+    }
+    if (isPrime) 
+    {
+        console.log(i);
     }
 }
-ready()
