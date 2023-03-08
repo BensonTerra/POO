@@ -1,17 +1,21 @@
-const num = +prompt("Digite um número?")
-
-for (let i = 2; i <= num; i++) 
+function ready() 
 {
-    let isPrime = true
-    for (let j = 2; j <= i - 1; j++) 
+    const num = +prompt("Digite um número?")
+
+    for (let i = 2; i <= num; i++) 
     {
-        if (i % j == 0) 
+        let isPrime = true
+        for (let j = 2; j <= i-1; j++) 
         {
-            isPrime = false
+            if (i % j == 0) 
+            {
+                isPrime = false
+            }
+        }
+        if (isPrime) 
+        {
+            console.log(i);
         }
     }
-    if (isPrime) 
-    {
-        console.log(i);
-    }
 }
+ready()

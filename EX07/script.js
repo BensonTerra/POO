@@ -6,3 +6,4 @@ function ready()
         console.log(`${num} * ${i} = ${num * i}`)
     }
 }
+ready()
