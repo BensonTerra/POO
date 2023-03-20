@@ -10,9 +10,9 @@ function teste()
     else
     {
         p1.textContent = txt.value
+        console.log("Thanks for the button click!")
     }
-    
-    
 }
+
 let btn = document.getElementById("btn")
 btn.addEventListener("click",teste)
