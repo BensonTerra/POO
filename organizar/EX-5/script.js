@@ -3,13 +3,15 @@ numFuncionarios = 2
 
 function adicionarFuncionario()
 {
-    
-
     console.log("teste")
-    for (let i = 0; i < numFuncionarios;i++)
+    for (let i = 0; i < numFuncionarios + 1;i++)
     {
         nome = prompt("Insira nome do funcionario")
         //console.log(nome)
+        if (funcionarioLista.some(funcionario => funcionario.name === nome))
+        {
+            return false
+        }
         salario = +prompt("Insira o salario do funcionario")
         //console.log(salario)
         departamento = prompt("Insira o departamento do funcionario")
