@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex02b</title>
+</head>
+<body>
+  <h1>WevDev Tech Talk</h1>
+  <div>
+    <form action="ex04.html">
+      <div><!--input type text-->
+        <label for="txtNome">Nome</label>
+        <input type="text" name="txtNome" id="txtNome">
+      </div>
+
+      <div><!--input type radio-->
+        <fieldset>
+          <legend>Curso</legend>
+          <div>
+            <input type="radio" id="tsiw" name="curso" value="tsiw" checked>
+            <label for="tsiw">TSIW</label>
+          </div>
+          <div>
+            <input type="radio" id="multimedia" name="curso" value="multimedia">
+            <label for="multimedia">multimédia</label>
+          </div>
+          <div>
+            <input type="radio" id="tcav" name="curso" value="tcav">
+            <label for="tcav">TCAV</label>
+          </div>
+          <div>
+            <input type="radio" id="design" name="curso" value="design">
+            <label for="design">design</label>
+          </div>
+          <div>
+            <input type="radio" id="fotografia" name="curso" value="fotografia">
+            <label for="fotografia">Fotografia</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div><!--input type selected-->
+        <label for="sltTipoPerfil">Tipo: </label>
+        <select name="sltTipoPerfil" id="sltTipoPerfil">
+          <option value="estudante">Estudante</option>
+          <option value="funcionario">Funcionario</option>
+          <option value="outro">outro</option>
+        </select>
+      </div>
+
+      <div><!--input type checkBox-->
+        <fieldset>
+          <legend>Sessão</legend>
+          <div>
+            <input type="checkbox" id="sessaoManha" name="sessaoManha" class="sessionCheckbox">
+            <label for="manha">Manhã</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sessaoTarde" name="sessaoTarde" class="sessionCheckbox">
+            <label for="tarde">Tarde</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <input type="submit" value="Adicionar">
+      <input type="button" value="Contagem">
+    </form>
+  </div>
+  <hr>
+  <script src="script.js"></script>
+</body>
+</html>
