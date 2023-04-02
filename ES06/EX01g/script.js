@@ -89,8 +89,4 @@ function removeGame(event)
         frmRemove.reset()
     }
 }
-<<<<<<< HEAD
 frmRemove.addEventListener('submit', function(event){removeGame(event)})
-=======
-frmRemove.addEventListener('submit', function(event){removeGame(event)})
->>>>>>> c6e6d70ebdfd696ef09828c11efea7597677c7ff
