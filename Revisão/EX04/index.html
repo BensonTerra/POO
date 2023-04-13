@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping List</title>
+  <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+  <form id="addForm">
+    <fieldset>
+      <legend>Formulario</legend>
+      <div>
+        <label for="addTitle">Matricula do veiculo</label>
+        <input type="text" name="addTitle" id="inputMatricula" maxlength="6" required>
+      </div>
+      <div>
+        <label for="addGenre">Tipo</label>
+        <select id="inputTipo">
+          <option value="E">Entrada</option>
+          <option value="S">Saida</option>
+        </select>
+      </div>
+      <div>
+        <input type="submit" value="Confirmar">
+      </div>
+    </fieldset>
+  </form>
+
+  <table>
+    <tr>
+      <th>Matricula</th>
+      <th>Status</th>
+    </tr>
+    <table id="tableBody">
+      
+    </table>
+  </table>
+
+  <ul id = "itemList">
+
+  </ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
