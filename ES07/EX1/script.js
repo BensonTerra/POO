@@ -7,7 +7,7 @@ let lista =
     },
 ];
 
-let generos = ["Frutas","legumes","Carne","Peixe","bebidas","Outro"]
+let generos = ["","Frutas","legumes","Carne","Peixe","bebidas","Outro"]
 
 console.table(lista);
 
@@ -118,5 +118,8 @@ btnLimparLista.addEventListener("click",clean)
 
 function newGenre()
 {
-
+    let genre = prompt("Insira a nova categoria")
+    generos.splice(generos.length-1, 0, genre)
+    //console.log(generos)
 }
+btnNewGenre.addEventListener("click",newGenre)
