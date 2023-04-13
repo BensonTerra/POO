@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex02</title>
+  <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+
+  <h1>2buy</h1>
+  <form id="addForm">
+    <fieldset>
+      <legend>Formulario</legend>
+      <div>
+        <label for="addTitle">Nome</label>
+        <input type="text" name="addTitle" id="nameProduct" >
+      </div>
+      <div>
+        <label for="addGenre">Genero</label>
+        <select id="addGenre">
+          <option>Frutas</option>
+          <option>Legumes</option>
+          <option>Carne</option>
+          <option>Peixe</option>
+          <option>Bebida</option>
+          <option>Outro</option>
+        </select>
+        <input type="button" value="Adicionar nova categoria" id="newGenre">
+      </div>
+      <div>
+        <label for="addQuantity">Quantidade</label>
+        <input  type="number" value="1" min="1" max="1000" name="addQuantity" id="addQuantity">
+      </div>
+      <div>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+      </div>
+    </fieldset>
+  </form>
+
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Genero</th>
+      <th>quantidade</th>
+    </tr>
+    <table id="tableBody">
+      
+    </table>
+  </table>
+  
+  <hr>
+
+  <div>
+    <input type="button" value="NºPRODUTOS" id="nProdutos">
+    <input type="button" value="PRODUTO POR CATEGORIA" id="perCategoria">
+    <input type="button" value="QUANTIDADE TOTAL" id="totalQuantidade">
+    <input type="button" value="LIMPAR LISTA" id="clearLista">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
