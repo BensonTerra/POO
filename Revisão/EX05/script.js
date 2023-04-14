@@ -13,7 +13,7 @@ let colaboradores =
 ]
 let colaboradoresAtivos = 
 [
-    "Rui"
+    
 ]
 
 const intPorcentagem = document.getElementById("%total")
@@ -55,7 +55,7 @@ function renderLista()
 renderLista()
 
 function adicionarColaborador()
-{
+{   console.log(colaboradores.includes(txtNovoColaborador.value))
     if (colaboradores.includes(txtNovoColaborador.value) == false)
     {
         const template = document.createElement("tr");
@@ -75,6 +75,8 @@ function adicionarColaborador()
         {
             estado(colaboradorName,btnEstado)
         })
+
+        colaboradores.push(txtNovoColaborador.value)
     }
     else
     {
@@ -108,7 +110,6 @@ function estado(nome, estadoAtual)
 function remove(index)
 {
     colaboradoresAtivos.splice(index, 1)
-    renderLista()
 }
 
 function porcentagem()
