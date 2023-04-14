@@ -115,6 +115,10 @@ function parkValidator(item)
         {
             return true
         }
+        else
+        {
+            return alert("Movimento impossível")
+        }
     }
 }
 
