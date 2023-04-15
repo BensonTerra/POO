@@ -77,6 +77,7 @@ function adicionarColaborador()
         })
 
         colaboradores.push(txtNovoColaborador.value)
+        porcentagem()
     }
     else
     {
