@@ -50,7 +50,7 @@ function renderLista()
         }
         template += 
         `
-        <tr>
+        <tr id="">
             <td>${placa}</td>
             <td>${status}</td>
         </tr>

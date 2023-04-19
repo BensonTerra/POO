@@ -29,7 +29,6 @@ const btnAdicionar = document.getElementById('adicionar');
 
 function renderLista()
 {
-    
     for (let colaborador of colaboradores)
     {
         //console.log(colaborador);
