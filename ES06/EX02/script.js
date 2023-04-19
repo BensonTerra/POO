@@ -63,7 +63,7 @@ const dialogTrailer = document.getElementById('dialogTrailer');
 //console.log(dialogTrailer);
 //--//--**
 
-function renderMovies()
+function renderContacts()
 {
     let template = '';
     for (let movie of movies)
@@ -83,7 +83,7 @@ function renderMovies()
     }
     tblBody.innerHTML = template;
 }
-renderMovies(movies);
+renderContacts(movies);
 
 const frmMovieAdd = document.getElementById('addForm');
 function addMovie(event)
@@ -104,7 +104,7 @@ function addMovie(event)
     }
     
     movies.push(newMovie);
-    renderMovies();
+    renderContacts();
     console.table(movies);
     addForm.reset();
     return true;
@@ -117,7 +117,7 @@ function removeMovie(title)
     console.log(index);
     movies.splice(index, 1);
     console.table(movies);
-    renderMovies();
+    renderContacts();
 }
 
 function openCover(source)

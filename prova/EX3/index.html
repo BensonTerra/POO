@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex03</title>
+  <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+
+  <h1>Movies Manager</h1>
+  <form id="addForm">
+    <fieldset>
+      <legend>Add Movie</legend>
+      <div>
+        <label for="addName">Name</label>
+        <input type="text" name="addName" id="addName" >
+      </div>
+      <div>
+        <label for="addEmail">Email</label>
+        <input type="text" name="addEmail" id="addEmail" >
+      </div>
+      <div>
+        <label for="addPhone">Name</label>
+        <input type="text" name="addPhone" id="addPhone" >
+      </div>
+      <input type="submit" value="Add contact">
+    </fieldset>
+  </form>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+    <table id="tableBody">
+      
+    </table>
+    <div>
+      <h1>Number of contacts selected:<span id="nSelecionados"> 0</span></h1>
+    </div>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>

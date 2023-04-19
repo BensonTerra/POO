@@ -3,6 +3,10 @@ let products =
     {
         name: "batata",
         quantity: 2,
+    },
+    {
+        name: "Elemento sem identificação",
+        quantity: 2,
     }
 ]
 
