@@ -9,7 +9,8 @@ class Dice
         this.#quantity = 6
     }
 
-    get _faceValue() {
+    get _faceValue() 
+    {
         return this.#faceValue;
     }
 
@@ -28,47 +29,63 @@ class Dice
         const res = Math.floor(Math.random() * this.#quantity);
         return this.#faceValue[res]
     }
+}
 
-    decompor()
+function EX01()
+{
+    const obj1 = new Dice()
+
+    console.log("ES07---EX01")
+    //console.log(obj1._faceValue)
+    //console.log(obj1.roll())
+
+    let rolls = []
+
+    for(let i = 0; i < 100; i++)
     {
-        let res = []
+        rolls.push(obj1.roll())
     }
-}
+    //console.table(rolls)
 
-const obj1 = new Dice()
+    const frequency = {}
+    for (let i = 0; i < rolls.length; i++)
+    {
+        frequency[rolls[i]] = (frequency[rolls[i]] || 0) + 1 //condição em linha
+    }
+    //console.log(frequency)
 
-console.log("ES07---EX01")
-//console.log(obj1._faceValue)
-//console.log(obj1.roll())
+    const table = document.createElement('table')
+    const tableBody = document.createElement("tbody")
+    const faceCell = document.createElement("td")
+    const frequencyCell = document.createElement("td")
+    const firstRow = document.createElement("tr")
+    const secondRow = document.createElement("tr")
 
-let rolls = []
+    faceCell.innerHTML = "Face"
+    firstRow.appendChild(faceCell)
 
-for(let i = 0; i < 100; i++)
-{
-    rolls.push(obj1.roll())
-}
-//console.table(rolls)
-
-const frequency = {}
-for (let i = 0; i < rolls.length; i++)
-{
-    frequency[rolls[i]] = (frequency[rolls[i]] || 0) + 1 //condição em linha
-}
-console.log(frequency)
-
-const table = document.createElement('table')
-const tableBody = document.createElement("tbody")
-const firstRow = document.createElement("tr")
-const faceCell = document.createElement("td")
-
-faceCell.innerHTML = "Face"
-
-firstRow.appendChild(faceCell)
-
-for (let face in frequency)
-{
+    for (let face in frequency)
+    {
     const td = document.createElement("td")
     td.innerHTML = face
+    //console.log(td.innerHTML)
     firstRow.appendChild(td)
-}
+    }
 
+    frequencyCell.innerHTML = "Frequência"
+    secondRow.appendChild(frequencyCell)
+
+    for (let quantidade in frequency)
+    {
+    const td = document.createElement("td")
+    td.innerHTML = frequency[quantidade]
+    //console.log(td.innerHTML)
+    secondRow.appendChild(td)
+    }
+
+    table.appendChild(tableBody.appendChild(firstRow))
+    table.appendChild(tableBody.appendChild(secondRow))
+
+    document.body.appendChild(table)
+}
+EX01()
