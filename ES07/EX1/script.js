@@ -1,125 +1,74 @@
-let lista = 
-[
-    {
-        nome: 'batata',
-        genero: 'Legumes',
-        quantidade: 1
-    },
-];
-
-let generos = ["","Frutas","legumes","Carne","Peixe","bebidas","Outro"]
-
-console.table(lista);
-
-//--//--**
-const txtProductName = document.getElementById('nameProduct');
-//console.log(txtProductName.value);
-//---//
-const txtProductGenre = document.getElementById('addGenre');
-//console.log(txtProductGenre.value);
-//---//
-const intProduct = document.getElementById('addQuantity');
-//console.log(intProduct.value);
-//---//
-const addForm = document.getElementById('addForm');
-//console.log(addForm);
-//---//
-const tblBody = document.getElementById('tableBody');
-//console.log(tblBody);
-//---//
-const totalProdutos = document.getElementById("nProdutos")
-//console.log(totalProdutos);
-//---//
-const produtosPorCategoria = document.getElementById("perCategoria")
-//console.log(produtosPorCategoria)
-//---//
-const btnTotalQuantidade = document.getElementById("totalQuantidade")
-//console.log(btnTotalQuantidade)
-//---//
-const btnLimparLista = document.getElementById("clearLista");
-//console.log(btnLimparLista)
-const btnNewGenre = document.getElementById("newGenre");
-//---//--**
-
-function renderlista()
+class Dice
 {
-    let template = '';
-    for (let produto of lista)
-    {
-        template += 
-        `
-        <tr>
-            <td>${produto.nome}</td>
-            <td>${produto.genero}</td>
-            <td>${produto.quantidade}</td>
-        </tr>
-        `
-    }
-    tblBody.innerHTML = template;
-}
-renderlista(lista);
+    #faceValue = []
+    #quantity = 0
 
-function addProduct(event)
-{
-    event.preventDefault();
-    console.log("Function addProduct");
-    const newProduct =
+    constructor() 
     {
-        nome: txtProductName.value,
-        genero: txtProductGenre.value,
-        quantidade: intProduct.value
+        this.#faceValue = [1,2,3,4,5,6]
+        this.#quantity = 6
     }
-    if (lista.some(produto => produto.nome === newProduct.nome))
+
+    get _faceValue() {
+        return this.#faceValue;
+    }
+
+    set _faceValue(value) 
     {
-        return alert("produto já existe");
+        this.#faceValue = value;
     }
     
-    lista.push(newProduct);
-    renderlista();
-    console.table(lista);
-    addForm.reset();
-    return true;
-}
-addForm.addEventListener('submit', function(event){addProduct(event)});
+    getQuantityFaces()
+    {
+        return this.#quantity
+    }
 
-function totalProdutosLista()
+    roll()
+    {
+        const res = Math.floor(Math.random() * this.#quantity);
+        return this.#faceValue[res]
+    }
+
+    decompor()
+    {
+        let res = []
+    }
+}
+
+const obj1 = new Dice()
+
+console.log("ES07---EX01")
+//console.log(obj1._faceValue)
+//console.log(obj1.roll())
+
+let rolls = []
+
+for(let i = 0; i < 100; i++)
 {
-    console.log(lista.length)
-    alert(`Total Produtos = ${lista.length}`)
+    rolls.push(obj1.roll())
 }
-totalProdutos.addEventListener("click",totalProdutosLista)
+//console.table(rolls)
 
-function mensagemCategoria()
+const frequency = {}
+for (let i = 0; i < rolls.length; i++)
 {
-    let categoriaPrompt = prompt("Insira a categora que deseja filtrar")
-    //console.log(categoriaPrompt)
-
-    let filtroCategoria = lista.filter(item => item.genero === categoriaPrompt)
-
-    alert(`A lista tem ${filtroCategoria.length} produtos na categoria ${categoriaPrompt}`)
+    frequency[rolls[i]] = (frequency[rolls[i]] || 0) + 1 //condição em linha
 }
-produtosPorCategoria.addEventListener("click",mensagemCategoria)
+console.log(frequency)
 
-function mensagemQuantidade()
+const table = document.createElement('table')
+const tableBody = document.createElement("tbody")
+const firstRow = document.createElement("tr")
+const faceCell = document.createElement("td")
+
+faceCell.innerHTML = "Face"
+
+firstRow.appendChild(faceCell)
+
+for (let face in frequency)
 {
-    let msg = "Quantidade total = "
-    let total = lista.reduce((sum, item) => sum + +item.quantidade, 0)
-    msg += total
-    alert(msg)
+    const td = document.createElement("td")
+    td.innerHTML = face
+    firstRow.appendChild(td)
 }
-btnTotalQuantidade.addEventListener("click",mensagemQuantidade)
 
-function clean()
-{
-    lista = []
-    renderlista()
-}
-btnLimparLista.addEventListener("click",clean)
-
-function newGenre()
-{
-    let genre = prompt("Insira a nova categoria")
-    generos.splice(generos.length-1, 0, genre)
-    //console.log(generos)
-}
-btnNewGenre.addEventListener("click",newGenre)
