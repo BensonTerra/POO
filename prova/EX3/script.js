@@ -24,12 +24,9 @@ const txtPhone = document.getElementById("addPhone")
 console.log(txtPhone)
 
 const addForm = document.getElementById("addForm")
-
-
 const tblBody = document.getElementById("tableBody")
 
 const numSelected = document.getElementById("nSelecionados")
-
 
 
 function renderContacts()
