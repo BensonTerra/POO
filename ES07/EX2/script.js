@@ -134,13 +134,13 @@ function EX02()
 
     console.log("consumo")
     console.log(car1._consumo)
-    car1._consumo = 6
+    car1._consumo = 0
     console.log(car1._consumo)
     console.log("\n")
 
     console.log("combustivel")
     console.log(car1._tipoCombustivel)
-    car1._tipoCombustivel = "Gasolina"
+    //car1._tipoCombustivel = "Gasolina"
     console.log(car1._tipoCombustivel)
     console.log("\n")
 
@@ -167,8 +167,14 @@ function EX02()
 
     function filtrarPorTipoCombustivel(tipo)
     {
-        
+        let carrosMarca = cars.filter((car) => car._tipoCombustivel === tipo)
+        console.table(carrosMarca)
+        let total = 0
+
+        carrosMarca.forEach((car) => total += car._combutivelAtual)
+        return total
     }
+    console.log('Sum of the current fuel of all cars that use Diesel:', filtrarPorTipoCombustivel('Diesel'));
 }
 EX02()
 

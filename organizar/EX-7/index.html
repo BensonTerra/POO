@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX07</title>
+    <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+    <div>
+        <input type="button" value="play" id="play">
+        <input type="button" value="pause" id="pause">
+        <input type="button" value="inicio" id="inicio">
+        <input type="button" value="fim" id="fim">
+        <input type="button" value="tempo" id="tempo">
+        <input type="number" min="0" max="60" value="0" id="tempoSec">
+        <h2 id="tempoVideo">Texto</h2>
+        <br>
+        <video id="video" width="480" height="200" autoplay muted controls loop>
+            <source src="https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4" type="video/mp4">
+        </video>
+        <script src="script.js"></script>
+    </div>
+    
+</body>
+</html>
