@@ -118,7 +118,8 @@ class Director
   const buildTable = () => {
     let template = '';
     for (const movie of movies) {
-      template += `<tr>
+      template += 
+      `<tr>
           <td>${movie.title}</td>
           <td>${movie.director.name}</td>
           <td>${movie.actors}</td>
