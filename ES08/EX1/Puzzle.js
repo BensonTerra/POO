@@ -5,16 +5,15 @@ export class Puzzle
     #solved = false
     #txtQuestao = ""
     #respostas = []
-    #respostaIndex = 0
+    #solucao = 0
 
-    constructor(name, dificuldade, solved=false, txtQuestao, respostas, respostaIndex)
+    constructor(name, dificuldade, txtQuestao, respostas, solucao)
     {
         this.#name = name;
         this.#dificuldade = dificuldade
-        this.#solved = solved
         this.#txtQuestao = txtQuestao
         this.#respostas = respostas
-        this.#respostaIndex = respostaIndex
+        this.#solucao = solucao
     }
 
     get _name()
@@ -42,8 +41,12 @@ export class Puzzle
         return this.#respostas
     }
 
-    get _respostaIndex()
+    get _solucao()
     {
-        return this.#respostaIndex
+        return this.#solucao
+    }
+
+    get _solved() {
+        return this.#solved;
     }
 }

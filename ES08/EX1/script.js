@@ -14,52 +14,78 @@ function renderEscapeRoomLista(escapeRoomsArray, escapeRoomsContainer)
         const tempH2 = document.createElement("h2")
         tempH2.innerHTML = escapeRoomsArray[i]._name
         tempDiv.appendChild(tempH2)
-        tempDiv.addEventListener("click",() => renderEscapeRoomLista(i))
+        tempDiv.addEventListener("click",() => renderEscapeRoom(i))
         escapeRoomsContainer.appendChild(tempDiv)
     }    
 }
 
 function renderEscapeRoom(escapeRoomId)
 {
-const tempEscapeRoom = escapeRooms[escapeRoomId]
-escapeRoomTitle.innerHTML = tempEscapeRoom._name
+    const tempEscapeRoom = escapeRooms[escapeRoomId]
+    escapeRoomTitle.innerHTML = tempEscapeRoom._name
 
-const form = document.createElement('form')
-form.id = escapeRoomId + 1
+    //console.log(tempEscapeRoom._puzzles)
 
-let template = ""
-for (let i = 0; i < tempEscapeRoom.puzzle.length; i++)
-{
-    template += 
-    `
-    <fieldset>
-    <legend>${tempEscapeRoom._puzzles[i]._name}</legend>
-    <div>
-        Difficulty: ${tempEscapeRoom._puzzles[i]._difficulty}
-    </div>
-    <br>
-    <div>
-        ${tempEscapeRoom._puzzles[i]._text} ?
-    </div>
-    <br>
-    `
+    const form = document.createElement('form')
+    form.id = escapeRoomId + 1
 
-    for (let j = 0; j < tempEscapeRoom._puzzles[i]._respostas.length; j += 1) {
-    template += 
-    `
-    <input type="radio" id="er${escapeRoomId + 1}p${i + 1}ans${j + 1}" name="er${escapeRoomId + 1}p${i + 1}" value="${tempEscapeRoom._puzzles[i]._respostas[j]}">
-    <label for="er${escapeRoomId + 1}p${i + 1}ans${j + 1}">${tempEscapeRoom._puzzles[i]._respostas[j]}</label><br>`;
+    let template = ""
+    for (let i = 0; i < tempEscapeRoom._puzzles.length; i++)
+    {
+        template += 
+        `
+        <fieldset>
+        <legend>${tempEscapeRoom._puzzles[i]._name}</legend>
+        <div>
+            Difficulty: ${tempEscapeRoom._puzzles[i]._dificuldade}
+        </div>
+        <br>
+        <div>
+            ${tempEscapeRoom._puzzles[i]._txtQuestao} ?
+        </div>
+        <br>
+        `
+        for (let j = 0; j < tempEscapeRoom._puzzles[i]._respostas.length; j += 1) 
+        {
+            template += 
+            `
+            <input type="radio" id="er${escapeRoomId + 1}p${i + 1}ans${j + 1}" name="er${escapeRoomId + 1}p${i + 1}" value="${tempEscapeRoom._puzzles[i]._respostas[j]}">
+            <label for="er${escapeRoomId + 1}p${i + 1}ans${j + 1}">${tempEscapeRoom._puzzles[i]._respostas[j]}</label><br>
+            `
+        }
+        template += `<div class="puzzle-solved">${tempEscapeRoom._puzzles[i]._solved ? '&#9989;' : '&#10060;'}</div>`;
+        template += '</fieldset>';
     }
-    template += `<div class="puzzle-solved">${tempEscapeRoom._puzzles[i].solved ? '&#9989;' : '&#10060;'}</div>`;
-    template += '</fieldset>';
+
+    escapeRoomContainer.innerHTML = ""
+    //console.log(template)
+    form.innerHTML = template
+    form.innerHTML += '<br><input type="submit" value="Validate Room Answers">';
+    form.addEventListener('submit', validateEscapeRoom);
+    escapeRoomContainer.appendChild(form);
 }
 
-escapeRoomContainer.innerHTML = ""
-escapeRoomContainer = template
-form.innerHTML += '<br><input type="submit" value="Validate Room Answers">';
-form.addEventListener('submit', validateEscapeRoom);
-escapeRoomContainer.appendChild(form);
-}
+function validateEscapeRoom(event) {
+    event.preventDefault();
+  
+    const fieldsets = escapeRoomContainer.getElementsByTagName('fieldset');
+  
+    const escapeRoomIndex = this.id - 1;
+    console.log(escapeRoomIndex)
+    for (let i = 0; i < fieldsets.length; i += 1) {
+      const radioButtons = fieldsets[i].getElementsByTagName('input');
+      console.log(radioButtons)
+      console.log("ciclo fora")
+  
+      if (radioButtons[escapeRooms[escapeRoomIndex]._puzzles[i]._solucao - 1].checked) 
+      {
+        console.log("ciclo dentro")
+        escapeRooms[escapeRoomIndex].solvePuzzle(i);
+      }
+    }
+  
+    renderEscapeRoom(escapeRoomIndex)
+  }
 
 // DOM selection
 const escapeRoomsContainer = document.getElementById('escape-rooms-container');
@@ -83,7 +109,7 @@ const escapeRoom3 = new EscapeRoom('Forest Room', 'https://picsum.photos/id/502/
 escapeRoom3.addPuzzle(puzzle4);
 
 const escapeRooms = [escapeRoom1, escapeRoom2, escapeRoom3];
-console.log(escapeRooms);
+console.table(escapeRooms);
 
 // Add escape rooms to main page
 renderEscapeRoomLista(escapeRooms, escapeRoomsContainer);

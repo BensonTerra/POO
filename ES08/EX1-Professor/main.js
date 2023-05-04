@@ -22,6 +22,7 @@ function renderEscapeRoom(escapeRoomId) {
   const form = document.createElement('form');
   form.id = escapeRoomId + 1;
 
+
   let template = '';
   for (let i = 0; i < tempEscapeRoom.puzzles.length; i += 1) {
     template += `<fieldset>
