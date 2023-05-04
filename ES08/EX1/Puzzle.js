@@ -47,8 +47,3 @@ export class Puzzle
         return this.#respostaIndex
     }
 }
-
-const puzzle1 = new Puzzle('Math Puzzle', 'hard', 'What is the result of 3 x 7', [1, 2, 14, 21], 4)
-const puzzle2 = new Puzzle('Geography Puzzle', 'medium', 'Which city is the capital of france', ['Lisbon', 'Madrid', 'Paris', 'Rome'], 3)
-const puzzle3 = new Puzzle('Quiz Puzzle', 'easy', 'Which animal is the Mickey Mouse', ['Cat', 'Dog', 'Mouse', 'Rabbit'], 3)
-const puzzle4 = new Puzzle('One Letter Puzzle', 'hard', 'Which letter denotes the roman numeral for 100', ['C', 'X', 'V', 'I'], 1);

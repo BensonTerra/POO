@@ -29,6 +29,11 @@ export class EscapeRoom
         this.#image = value;
     }
 
+    get _puzzles()
+    {
+        return this.#puzzles;
+    }
+
     addPuzzle(puzzle)
     {
         this.#puzzles.push(puzzle);
@@ -39,7 +44,7 @@ export class EscapeRoom
         return this.#puzzlesCompletos === this.#puzzles.length
     }
 
-    solvedPuzzle(index)
+    solvePuzzle(index)
     {
         const puzzle = this._puzzles[index]
         if (puzzle.solved == false)
