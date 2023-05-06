@@ -53,8 +53,11 @@ function validateEscapeRoom(event) {
   const escapeRoomIndex = this.id - 1;
   for (let i = 0; i < fieldsets.length; i += 1) {
     const radioButtons = fieldsets[i].getElementsByTagName('input');
+    console.log(radioButtons[escapeRooms[escapeRoomIndex].puzzles[i].solution - 1].checked)
 
-    if (radioButtons[escapeRooms[escapeRoomIndex].puzzles[i].solution - 1].checked) {
+    if (radioButtons[escapeRooms[escapeRoomIndex].puzzles[i].solution - 1].checked) 
+    {
+      console.log("dentro da if")
       escapeRooms[escapeRoomIndex].solvePuzzle(i);
     }
   }
