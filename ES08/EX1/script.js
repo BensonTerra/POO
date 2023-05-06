@@ -65,8 +65,10 @@ function renderEscapeRoom(escapeRoomId)
     escapeRoomContainer.appendChild(form);
 }
 
-function validateEscapeRoom(event) {
+function validateEscapeRoom(event) 
+{
     event.preventDefault();
+    console.log("validateEscapeRoom")
   
     const fieldsets = escapeRoomContainer.getElementsByTagName('fieldset');
   
@@ -75,11 +77,12 @@ function validateEscapeRoom(event) {
     for (let i = 0; i < fieldsets.length; i += 1) {
       const radioButtons = fieldsets[i].getElementsByTagName('input');
       console.log(radioButtons)
+      console.log(radioButtons[escapeRooms[escapeRoomIndex]._puzzles[i]._solucao - 1].checked)
       console.log("ciclo fora")
   
       if (radioButtons[escapeRooms[escapeRoomIndex]._puzzles[i]._solucao - 1].checked) 
       {
-        console.log("ciclo dentro")
+        console.log("dentro da if")
         escapeRooms[escapeRoomIndex].solvePuzzle(i);
       }
     }

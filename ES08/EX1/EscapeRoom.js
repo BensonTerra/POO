@@ -47,7 +47,8 @@ export class EscapeRoom
     solvePuzzle(index)
     {
         const puzzle = this._puzzles[index]
-        if (puzzle.solved == false)
+        console.log("solvePuzzle")
+        if (!puzzle.solved)
         {
             puzzle.solve()
             this.#puzzlesCompletos += 1

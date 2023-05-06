@@ -49,4 +49,10 @@ export class Puzzle
     get _solved() {
         return this.#solved;
     }
+
+    solve()
+    {
+        this.#solved = true;
+        console.log("Você solucinou o puzzle");
+    }
 }
