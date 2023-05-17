@@ -24,7 +24,8 @@ function renderCatalog(dogs = []) {
 }
 
 // GERAR CARD de um dog
-function generateCard(dog) {
+function generateCard(dog) 
+{
   let result = ` 
       <div class="col">
           <div class="card  bg-warning mb-3" style="widht: 300px; ">
