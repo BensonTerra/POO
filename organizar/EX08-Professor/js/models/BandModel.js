@@ -39,16 +39,11 @@ export function sortBands() {
 
 // OBTER BANDAS (COM SUPORTE A FILTROS E ORDENAÇÕES)
 export function getBands(filterName = "", filterGenre = "", isSorted = false) {
-  let filteredBands = bands.filter(
-    (band) =>
-      (band.name.toLowerCase().includes(filterName.toLowerCase()) ||
-        filterName === "") &&
-      (band.genre == filterGenre || filterGenre === "")
+  let filteredBands = bands.filter( (band) =>
+      (band.name.toLowerCase().includes(filterName.toLowerCase()) || filterName === "") && (band.genre == filterGenre || filterGenre === "")
   );
 
-  filteredBands = isSorted
-    ? filteredBands.sort((a, b) => a.name.localeCompare(b.name))
-    : filteredBands;
+  filteredBands = isSorted ? filteredBands.sort((a, b) => a.name.localeCompare(b.name)) : filteredBands;
 
   return filteredBands;
 }
