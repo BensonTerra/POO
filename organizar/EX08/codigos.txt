@@ -1,0 +1,9 @@
+        <div class="row">
+            <div class="col-md-8">
+                <p style="color: azure;">teste</p>
+            </div>
+            /*---*/
+            <div class="col-md-4">
+                <button id="login">Login</button>
+                <button id="registrar">Registrar</button>
+            </div>
