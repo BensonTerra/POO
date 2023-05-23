@@ -45,9 +45,8 @@ function navbarView() {
   document.querySelector("nav").innerHTML = result;
 
   // CLICAR NO BOTÃO DE REGISTAR
-  document
-    .querySelector("#frmRegister")
-    ?.addEventListener("submit", (event) => {
+  document.querySelector("#frmRegister")?.addEventListener("submit", (event) => 
+  {
       event.preventDefault();
       // Gestão do formulário de Registo
       const registerUsername = document.getElementById("txtUsernameRegister");
