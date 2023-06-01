@@ -14,7 +14,6 @@ export default class Book
         this.paginaTotal = paginaTotal;
         this.paginaAtual = paginaAtual;
     }
-
     //Setor TITULO
     get title()
     {
@@ -70,12 +69,19 @@ export default class Book
 
     forward()
     {
-        this.paginaAtual += 1
+        if(this.paginaAtual < this.paginaTotal)
+        {
+            this.paginaAtual += 1
+
+        }
     }
 
-    back()
+    backward()
     {
-        this.paginaAtual -= 1
+        if(this.paginaAtual > 0)
+        {
+            this.paginaAtual -= 1
+        }
     }
 
     backAndForward(tipo, quantidade)
@@ -89,57 +95,78 @@ export default class Book
             this.paginaAtual -= quantidade
         }
     }
-}
 
-let books = []
-const book1 = new Book("Os dias sem sorte", "Romance", "João Pais", 233, 201)
-books.push(book1)
-const book2 = new Book("Amor limite", "Romance", "Maria Augusta e António Coimbra", 513, 333)
-books.push(book2)
-const book3 = new Book("Raios", "Aventura", "Carlos Roma", 232)
-books.push(book3)
-console.log(books)
+} 
 
 //Setor F1
-export function booksGender()
+export function booksGender(array)
 {
     let res = []
     //let gender =  prompt("Digite o genero que deseja")
     let gender = "romance"
-    books.forEach(book => 
+    array.forEach(book => 
     {
         if(book.genero.toLowerCase() == gender)
         {
             res.push(book)
         }
     })
-    console.log(res)
+    console.table(res)
 }
-booksGender()
 
 //Setor F2
-export function booksStarted()
+export function booksStarted(array)
 {
     let res = 0
-    res = books.filter(book => book.paginaAtual > 0).length
+    res = array.filter(book => book.paginaAtual > 0).length
     console.log(res)
 }
-booksStarted()
-
 //Setor F3
-export function nPagesReaded()
+export function nPagesReaded(array)
 {
     let res = 0
-    res = books.reduce((total,book) => total += book.paginaAtual,0)
+    res = array.reduce((total,book) => total += book.paginaAtual,0)
     console.log(res)
 }
-nPagesReaded()
 
 //Setor F4
-export function bookHalfRead()
+export function bookHalfRead(array)
 {
     let res = []
-    
+    array.forEach(book => 
+    {
+        if(book.paginaAtual > (book.paginaTotal/2))
+        {
+            res += book.titulo + ", "
+        }
+    })
     console.log(res)
 }
-bookHalfRead()
+
+//Setor F5
+export function bookAutor()
+{
+    let bookSearch = prompt("Nome do livro")
+    let res = prompt("Nome do autor?")
+    let temp = ""
+    array.forEach(book => 
+    {
+        temp = book.autor
+        if(bookSearch.toLowerCase() == book.titulo.toLowerCase())
+        {
+            console.log(bookSearch)
+            if(!temp == "")
+            {
+                console.log("Com autor")
+                //alert(temp)
+            }
+            else
+            {
+                console.log("Sem autor")
+                //console.log(book)
+                book.author = res
+                console.log(book)
+            }
+        }
+    })
+}
