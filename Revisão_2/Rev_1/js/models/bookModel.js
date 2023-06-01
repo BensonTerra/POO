@@ -72,7 +72,6 @@ export default class Book
         if(this.paginaAtual < this.paginaTotal)
         {
             this.paginaAtual += 1
-
         }
     }
 

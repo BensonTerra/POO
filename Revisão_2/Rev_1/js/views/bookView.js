@@ -9,6 +9,7 @@ const book3 = new Book("Raios", "Aventura", "Carlos Roma", 232)
 books.push(book3)
 console.log(books)
 
+
 function renderView()
 {
     let table = document.getElementById("table")
@@ -39,29 +40,6 @@ function renderView()
     })
     table.innerHTML = content
 
-    const buttonsF = document.querySelectorAll(".forward")
-    for (const button of buttonsF) 
-    {
-        button.addEventListener("click", (event) =>
-        {
-            //event.preventDefault()
-            const book = books.find(book => book.titulo === event.target.id)
-            book.forward()
-            console.log(book)
-        })
-    }
-
-    const buttonsB = document.querySelectorAll(".backward")
-    for (const button of buttonsB) 
-    {
-        button.addEventListener("click", (event) =>
-        {
-            //event.preventDefault()
-            const book = books.find(book => book.titulo === event.target.id)
-            book.backward()
-            console.log(book)
-        })
-    }
 
 
     let total = 0
@@ -80,6 +58,37 @@ function renderView()
     `
     table.innerHTML = content
 
+    const buttonsF = document.querySelectorAll(".forward")
+    console.log(buttonsF)
+    buttonsF.forEach((button) => 
+    {
+        //console.log(button)
+        button.addEventListener("click", (event) => 
+        {
+            //console.log("button");
+            // event.preventDefault();
+            const book = books.find(book => book.titulo === event.target.id);
+            book.forward();
+            console.log(book);
+            renderView();
+        });
+    });
+
+    const buttonsB = document.querySelectorAll(".backward")
+    console.log(buttonsB)
+    buttonsB.forEach((button) => 
+    {
+        //console.log(button)
+        button.addEventListener("click", (event) => 
+        {
+            //console.log("button");
+            // event.preventDefault();
+            const book = books.find(book => book.titulo === event.target.id);
+            book.backward();
+            console.log(book);
+            renderView();
+        });
+    });
 }
 renderView()
 
