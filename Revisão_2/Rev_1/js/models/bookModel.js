@@ -24,7 +24,6 @@ export default class Book
     {
         this.titulo = value;
     }
-
     //Setor GENERO
     get gender()
     {
@@ -34,7 +33,6 @@ export default class Book
     {
         this.genero = value;
     }
-
     //Setor AUTOR
     get author()
     {
@@ -44,7 +42,6 @@ export default class Book
     {
         this.autor = value;
     }
-
     //Setor PAGINATOTAL
     get pagsTotal()
     {
@@ -54,7 +51,6 @@ export default class Book
     {
         this.paginaTotal = value;
     }
-
     //Setor PAGINAATUAL
     get pagActual()
     {
@@ -104,6 +100,7 @@ const book3 = new Book("Raios", "Aventura", "Carlos Roma", 232)
 books.push(book3)
 console.log(books)
 
+//Setor F1
 export function booksGender()
 {
     let res = []
@@ -119,3 +116,30 @@ export function booksGender()
     console.log(res)
 }
 booksGender()
+
+//Setor F2
+export function booksStarted()
+{
+    let res = 0
+    res = books.filter(book => book.paginaAtual > 0).length
+    console.log(res)
+}
+booksStarted()
+
+//Setor F3
+export function nPagesReaded()
+{
+    let res = 0
+    res = books.reduce((total,book) => total += book.paginaAtual,0)
+    console.log(res)
+}
+nPagesReaded()
+
+//Setor F4
+export function bookHalfRead()
+{
+    let res = []
+    
+    console.log(res)
+}
+bookHalfRead()
