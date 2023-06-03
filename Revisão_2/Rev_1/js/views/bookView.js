@@ -33,7 +33,9 @@ function renderView()
         <tr>
             <th>${book.titulo}</th>
             <th>${book.paginaTotal - book.paginaAtual}</th>
-            <th><button class="forward" id="${book.titulo}">forward</button><button class="backward" id="${book.titulo}">backward</button></th>
+            <th><button class="forward" id="${book.titulo}">forward</button>
+            <button class="backward" id="${book.titulo}">backward</button>
+            </th>
             <th class="tempoRestante">${(book.paginaTotal - book.paginaAtual)*5}</th>
         </tr>
         `
@@ -46,14 +48,14 @@ function renderView()
     const tempoTotal = document.querySelectorAll(".tempoRestante")
     for(const tempoParcial of tempoTotal)
     {
-        total += parseInt(tempoParcial.innerHTML)/60
+        total += parseInt(tempoParcial.innerHTML)
     }
     //console.log(total)
 
     content +=
     `
     <tr>
-        <th colspan = "4">tempo em horas: ${total}</th>
+        <th colspan = "4">tempo em horas: ${Math.ceil(total/60)}</th>
     </tr>
     `
     table.innerHTML = content
