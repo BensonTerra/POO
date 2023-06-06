@@ -1,39 +1,67 @@
-export class Director
+export default class Director
 {
-    id = 0;
     name = ""
     dateBirth = new Date();
     country = "Portugal"
 
-    constructor(id, name, dateBirth,country)
+    constructor(name, dateBirth,country)
     {
-        this.id = getNextId();
         this.name = name;
         this.dateBirth = dateBirth;
         this.country = country;
     }
-}
 
-export const directors = []
-
-function getNextId()
-{
-    let max = 0
-    for(let director of directors)
+    get name()
     {
-        if(director.id > max)
-        {
-            max = director.id
-        }
+        return this.name;
     }
 }
+export const directors = []
 
-const addNewDirector = document.getElementById('addNewDirector')
-const dialogDirector = document.getElementById('dialogDirector')
 const formDirector = document.getElementById("formDirector")
+const directorName = document.getElementById("directorName")
+const DirectorBirth = document.getElementById("directorBirth")
+const directorCountry = document.getElementById("directorCountry")
+const closeDialogDirector = document.getElementById("closeDialogDirector")
 
-addNewDirector.addEventListener('click', (event) =>
+formDirector.addEventListener("submit", (event) => 
 {
-    event.preventDefault();
-    dialogDirector.showModal()
+    event.preventDefault()
+
+    //console.log(directorName.value)
+    //console.log(DirectorBirth.value)
+    //console.log(directorCountry.value)
+
+    let director = new Director(directorName.value, DirectorBirth.value, directorCountry.value)
+    directors.push(director)
+    //console.log(directors)
+    renderViewDirector()
 })
+closeDialogDirector.addEventListener("click", (event) => 
+{
+    event.preventDefault()
+    dialogDirector.close()
+})
+export function renderViewDirector()
+{
+    let selDirector = document.getElementById("movieDirector")
+    let content = ""
+
+    content = `<option selected>Diretor</option>`
+    selDirector.innerHTML = content
+
+    console.log(directors)
+
+    directors.forEach(director => 
+    {
+        content += 
+        `
+        <option value="${director.name}">${director.name}</option>
+        `
+    })
+    selDirector.innerHTML = content
+}
+renderViewDirector()
+/*----------------------------------------------------------------*/
+
+
