@@ -18,12 +18,15 @@ export default class Movie
 
 export let movies = [];
 
-const formMovie = document.getElementById("formMovie");
-const movieTitle = document.getElementById("movieTitle");
-const movieYear = document.getElementById("movieYear");
-const movieDirector = document.getElementById("movieDirector");
-const movieDuration = document.getElementById("movieDuration");
-const movieActors = document.getElementById("movieActors"); 
+const movie1 = new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 142, ["Tim Robbins", "Morgan Freeman"]);
+const movie2 = new Movie("Inception", 2010, "Christopher Nolan", 148, ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]);
+const movie3 = new Movie("Pulp Fiction", 1994, "Quentin Tarantino", 154, ["John Travolta", "Samuel L. Jackson", "Uma Thurman"]);
+const movie4 = new Movie("Inglourious Bastards",2009,"Quentin Tarantino",153,["Brad Pitt", "Christoph Waltz", "Diane Kruger"]);
+movies.push(movie1);
+movies.push(movie2);
+movies.push(movie3);
+movies.push(movie4);
+renderView()
 
 formMovie.addEventListener("submit", (event) => 
 {
@@ -76,12 +79,52 @@ export function renderView()
 }
 renderView()
 /*----------------------------------------------------------------*/
-export function filmsByDirector(array) 
+export function filmsByDirector() 
 {
     let selectedDirector = "Quentin Tarantino";
-    let res = array.filter(movie => movie.director.toLowerCase() === selectedDirector.toLowerCase());
+    let res = movies.filter(movie => movie.director.toLowerCase() === selectedDirector.toLowerCase());
     console.table(res);
 }
-  
+const btn1 = document.getElementById("f1").addEventListener("click", () => filmsByDirector())
 
-const btn1 = document.getElementById("f1").addEventListener("click", () => filmsByDirector(movies))
+function filmsByActor()
+{
+    let res = []
+    let actmovies = []
+    let selectedActor = "Tim Robbins";
+    selectedActor = selectedActor
+    movies.forEach(movie => 
+    {
+        //console.log(movie.actors)
+        actmovies = movie.actors.map(Element => {return Element.toLowerCase()})
+        //console.log(selectedActor)
+        if (actmovies.includes(selectedActor.toLowerCase()))
+        {
+            res.push(movie);
+        }
+    })
+    console.table(res)
+}
+const btn2 = document.getElementById("f2").addEventListener("click", () => filmsByActor())
+
+
+import { directors } from "./director.js"
+function filmsByCountry()
+{
+    let res = []
+    let selectedCountry = "Estados Unidos";
+    let dirArray = directors.filter(director => director.country.toLowerCase() === selectedCountry.toLowerCase())
+    console.table(dirArray)
+    movies.forEach(movie => 
+    {
+        dirArray.forEach(director =>    
+        {
+            if (movie.director.toLowerCase() === director.name.toLowerCase())
+            {
+                res.push(movie);
+            }
+        })
+    })
+    console.table(res)
+}
+const btn3 = document.getElementById("f3").addEventListener("click", () => filmsByCountry())

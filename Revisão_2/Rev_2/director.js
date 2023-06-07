@@ -10,19 +10,16 @@ export default class Director
         this.dateBirth = dateBirth;
         this.country = country;
     }
-
-    get name()
-    {
-        return this.name;
-    }
 }
-export const directors = []
+export let directors = []
 
-const formDirector = document.getElementById("formDirector")
-const directorName = document.getElementById("directorName")
-const DirectorBirth = document.getElementById("directorBirth")
-const directorCountry = document.getElementById("directorCountry")
-const closeDialogDirector = document.getElementById("closeDialogDirector")
+const director1 = new Director("Frank Darabont", "28 de janeiro de 1959", "Estados Unidos");
+const director2 = new Director("Christopher Nolan", "30 de julho de 1970", "Reino Unido");
+const director3 = new Director("Quentin Tarantino", "27 de março de 1963", "Estados Unidos");
+directors.push(director1);
+directors.push(director2);
+directors.push(director3);
+renderViewDirector()
 
 formDirector.addEventListener("submit", (event) => 
 {
@@ -50,7 +47,7 @@ export function renderViewDirector()
     content = `<option selected>Diretor</option>`
     selDirector.innerHTML = content
 
-    console.log(directors)
+    //console.log(directors)
 
     directors.forEach(director => 
     {
