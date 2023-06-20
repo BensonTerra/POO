@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="showDialog">Adicionar Filme</button>
+    <dialog id="dialogMovie">
+        <form id="formMovie">
+            <label for="movieTitle">Title</label>
+            <input id="movieTitle" type="text">
+            <label for="movieYear">Year</label>
+            <input id="movieYear" type="number">
+            <label for="movieDirector"></label>
+            <select name="movieDirector" id="movieDirector">
+
+            </select>
+            <button type="button" id="addNewDirector">Add new director</button>
+            <label for="movieDuration">Duration</label>
+            <input id="movieDuration" type="number">
+            <label for="movieActors">Actors</label>
+            <input id="movieActors" type="text">
+            <button type="submit">Save</button>
+        </form>
+    </dialog>
+
+    <dialog id="dialogDirector">
+        <form id="formDirector">
+            <label for="directorName">Name</label>
+            <input id="directorName" type="text">
+            <label for="directorBirth">Year</label>
+            <input id="directorBirth" type="date">
+            <label for="directorCountry">Country</label>
+            <input id="directorCountry" type="text">
+            <button type="button" id="closeDialogDirector">Close</button>
+            <button type="submit">Save</button>
+        </form>
+    </dialog>
+
+
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Duration</th>
+            <th>Actors</th>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>

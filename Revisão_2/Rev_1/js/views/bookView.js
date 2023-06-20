@@ -24,6 +24,7 @@ function renderView()
             <th>TEMPO RESTANTE</th>
         </tr>
     `
+    table.innerHTML = content
     
 
     books.forEach(book => 
