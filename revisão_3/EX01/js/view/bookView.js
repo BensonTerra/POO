@@ -44,6 +44,23 @@ function renderView()
         table.innerHTML += content
     })
 
+
+    let total = 0
+    const tempoTotal = document.querySelectorAll("#tempoRestante")
+    for(const tempoParcial of tempoTotal)
+    {
+        total += parseInt(tempoParcial.innerHTML)
+    }
+    //console.log(total)
+
+    content =
+    `
+    <tr>
+        <th colspan = "4">tempo em horas: ${Math.ceil(total/60)}</th>
+    </tr>
+    `
+    table.innerHTML += content
+
     let buttonF = document.querySelectorAll(".forward");//console.log(buttonF)
     buttonF.forEach( button => 
     {

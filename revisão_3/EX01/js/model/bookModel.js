@@ -102,15 +102,9 @@ export function filterGender()
 {
     console.log("filterGenero")
     let genero = prompt("Genero a ser filtrado:")
-    let res = books.filter( book => book.genero.toLowerCase() == genero.toLowerCase());//console.log(res)
-    let resBook = ""
-    res.forEach( book => 
-    {
-        resBook = resBook + book.titulo + ", "
-    })
-    console.log(`Livros de ${genero}: ${resBook}`)
+    let res = books.filter( book => book.genero.toLowerCase() == genero.toLowerCase()).map( book => book.titulo).join(", ")
+    console.log(`Livros de ${genero}: ${res}`)
 }
-
 export function filterStartedBooks()
 {
     console.log("filterStartedBooks")
@@ -120,14 +114,11 @@ export function filterStartedBooks()
 export function allNpagesRead()
 {
     console.log("allNpagesRead")
-    let res = books.filter( book => book.paginaAtual > 0);console.log(res)
-    let resPages = 0
-    res.forEach(book => 
+    let res = books.filter( book => book.paginaAtual > 0).reduce( (pagesRead, book) => 
     {
-        console.log(book.paginaAtual)
-        resPages += book.paginaAtual
-    })
-    console.log(`Quantidade de paginas lidas: ${resPages}`)
+        return pagesRead + book.paginaAtual
+    },0);console.log(res)
+    console.log(`Quantidade de paginas lidas: ${res}`)
 }
 export function halfBookRead()
 {
