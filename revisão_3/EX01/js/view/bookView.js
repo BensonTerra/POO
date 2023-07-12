@@ -1,7 +1,7 @@
 import { Book, filterGender, filterStartedBooks, allNpagesRead, halfBookRead, filterAuthor } from "../model/bookModel.js";//console.log(Book)
 
 let book = ""
-export let books = []
+export var books = []
 book = new Book("Os dias sem sorte", "Romance", "João Pais", 233, 201);books.push(book)
 book = new Book("Amor limite", "Romance","Maria Augusta e António Coimbra", 513, 333);books.push(book)
 book = new Book("Raios", "Aventura", "Carlos Roma", 232);books.push(book)
