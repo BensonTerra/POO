@@ -1,4 +1,4 @@
-import { Parceria, nomePorCursos, totalProjetos, empresaMaisProjetos, numEmpresasCurso } from "../model/parceriaModel.js";//console.log(Book)
+import { Parceria, nomePorCursos, totalProjetos, empresaMaisProjetos, numEmpresasCurso, addProjetoParceria, removerFunction } from "../model/parceriaModel.js";//console.log(Book)
 
 let parceriaItem = ""
 export var parcerias = [];
@@ -9,14 +9,15 @@ parceriaItem  = new Parceria( "BindTunning","contacto@bindtunning.com",["TSIW"],
 parcerias.push(parceriaItem)
 parceriaItem = new Parceria("Kendir Studios","edu@kendir.com",["TSIW", "Multimédia", "Design"],4,["Desenvolvimento aventuras educativas"])
 parcerias.push(parceriaItem)
-console.table(parcerias)
+//console.table(parcerias)
 
-function renderView()
+export function renderView()
 {
     //console.log("renderView")
 
     let table = document.getElementById("table")
     let content = ""
+    table.innerHTML = content
 
     content =
     `
@@ -26,6 +27,7 @@ function renderView()
             <th>CURSOS</th>
             <th>NUMEROS DE PROJETOS</th>
             <th>PROJETOS</th>
+            <th>AÇÃO</th>
         </tr>
     `
     table.innerHTML = content
@@ -40,22 +42,19 @@ function renderView()
                 <th>${parceria.cursos}</th>
                 <th>${parceria.nProjetos}</th>
                 <th>${parceria.nomeProjetos}</th>
+                <th><input type="button" name="${parceria.nomeEmpresa}" id="remover" value="REMOVER"></th>
             </tr>
         `
         table.innerHTML += content
     })
-    
+
+    let btnsRemover =  document.querySelectorAll("#remover").forEach(element => { element.addEventListener("click", removerFunction)})
 
 }
 renderView()
-
-function teste()
-{
-    console.log('teste')
-}
 
 let btn1 = document.getElementById("f1").addEventListener("click", totalProjetos)
 let btn2 = document.getElementById("f2").addEventListener("click", nomePorCursos)
 let btn3 = document.getElementById("f3").addEventListener("click", empresaMaisProjetos)
 let btn4 = document.getElementById("f4").addEventListener("click", numEmpresasCurso)
-let btn5 = document.getElementById("f5").addEventListener("click", teste)
+let btn5 = document.getElementById("f5").addEventListener("click", addProjetoParceria)

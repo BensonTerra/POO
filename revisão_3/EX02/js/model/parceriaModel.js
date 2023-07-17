@@ -62,7 +62,7 @@ export class Parceria
     }
 }
 
-import { parcerias } from "../view/parceriaView.js";
+import { parcerias, renderView } from "../view/parceriaView.js";
 
         /*--F1--*/
 export function totalProjetos()
@@ -120,8 +120,8 @@ export function empresaMaisProjetos()
 export function numEmpresasCurso()
 {
     console.log(`numEmpresasCurso`)
-    let cursoFiltro = "tsiw"
-    //cursoFiltro = prompt("Qual curso deseja filtrar?")
+    //let cursoFiltro = "tsiw"
+    let cursoFiltro = prompt("Qual curso deseja filtrar?")
     //console.log(cursoFiltro)
     let res = `Número de empresas que possuem o curso "${cursoFiltro.toUpperCase()}": `
     let resNum = 0
@@ -140,4 +140,59 @@ export function numEmpresasCurso()
     res += `${resNum}`
     console.log(res)
 
+}
+
+        /*--F5--*/
+export function addProjetoParceria()
+{
+    let temp = []
+    parcerias.forEach( parceria => 
+    {
+        console.log(`${parceria.nomeEmpresa}`)
+        temp.push(parceria.nomeEmpresa)
+
+    })
+    //console.log(temp)
+
+    let vat = []
+
+    let arrayParcerias = temp.map(elemento => elemento.toLowerCase())
+    //console.log(arrayParcerias)
+    let selectedParceria = prompt("Escolha uma parceria para adcionionar um projeto: ")
+    //let selectedParceria = "BindTunning"
+    console.log(selectedParceria)
+    if (arrayParcerias.includes(selectedParceria.toLowerCase()))
+    {
+        let parceria = parcerias.find(elemento => elemento.nomeEmpresa.toLowerCase() === selectedParceria.toLowerCase());//console.log(parceria)
+        let projetosParceriaTemp = parceria.nomeProjetos;console.log(projetosParceriaTemp)
+        let projetosParceria = projetosParceriaTemp.map( elemento => elemento.toLowerCase());//console.log(projetosParceria)
+        let newProject = prompt("Insira o nome do novo projetos:")
+        if (!projetosParceria.includes(newProject))
+        {
+            //console.log("não incluso")
+            projetosParceria.push(newProject)
+            parceria.nomeProjetos = projetosParceria
+            //console.log(projetosParceria)
+            renderView()
+        }
+        else
+        {
+            alert("Projeto já existente")
+        }
+    }
+    else
+    {
+        alert("Empresa não listada")
+    }
+}
+
+        /*Remover*/
+export function removerFunction()
+{
+    //console.table(parcerias)
+    let removeParceriaHTML = this.parentNode.parentNode;//console.log(removeParceriaHTML)
+    let removeParceriaTxt = removeParceriaHTML.getElementsByTagName("th")[0].innerHTML;//console.log(removeParceriaTxt)
+    let removeParceriaArray = parcerias.findIndex(element => element.nomeEmpresa == removeParceriaTxt);//console.log(removeParceriaArray)
+    parcerias.splice(removeParceriaArray,1);//console.table(parcerias)
+    removeParceriaHTML.remove()
 }
