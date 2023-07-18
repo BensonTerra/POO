@@ -3,58 +3,58 @@ export default class ContaBancaria
 	// Propriedades
 	#numeroConta = 0
 	#nomeTitular = ""
-	#saldoConta = 0
+	#saldo = 0
 	// Construtor
-	constructor(numeroConta, nomeTitular, saldoConta = 0)
+	constructor(numeroConta, nomeTitular, saldo = 0)
 	{
 		this.#numeroConta = numeroConta;
 		this.#nomeTitular = nomeTitular;
-		this.#saldoConta = saldoConta;
+		this.#saldo = saldo;
 	}
 	// Get/Set
-	get _numeroConta()
+	get numeroConta()
 	{
 		return this.#numeroConta;
 	}
-	set _numeroConta(value)
+	set numeroConta(value)
 	{
 		this.#numeroConta = value;
 	}
 
-	get _nomeTitular()
+	get nomeTitular()
 	{
 		return this.#nomeTitular;
 	}
-	set _nomeTitular(value)
+	set nomeTitular(value)
 	{
 		this.#nomeTitular = value;
 	}
 
-	get _saldoConta()
+	get saldo()
 	{
-		return this.#saldoConta;
+		return this.#saldo;
 	}
-	set _saldoConta(value)
+	set saldo(value)
 	{
-		this.#saldoConta = value;
+		this.#saldo = value;
 	}
 	// Métodos
     depositar(valor)
     {
         this.#saldo += valor
-        alert(`Deposito de ${valor} na conta de numero ${this.#numConta}. Saldo atual: ${this.#saldo}`)
+        alert(`Deposito de ${valor} na conta de numero ${this.#numeroConta}. Saldo atual: ${this.#saldo}`)
     }
 
     levantar(valor)
     {
         if (valor > this.#saldo)
         {
-            alert(`Fundos insuficientes na conta ${this.#numConta}`)
+            alert(`Fundos insuficientes na conta ${this.#numeroConta}`)
         }
         else
         {
             this.#saldo -= valor
-            alert(`Levantamento de ${valor} na conta de numero ${this.#numConta}. Saldo atual: ${this.#saldo}`)
+            alert(`Levantamento de ${valor} na conta de numero ${this.#numeroConta}. Saldo atual: ${this.#saldo}`)
         }
     }
 }
