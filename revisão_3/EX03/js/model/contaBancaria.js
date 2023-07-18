@@ -11,5 +11,28 @@ default class ContaBancaria
         this.#saldo = saldo;
     }
 
-    
+    get numeroConta()
+    {
+        return this.#numConta;
+    }
+
+    get nomeTitular()
+    {
+        return this.#nomeTitular;
+    }
+
+    get saldo()
+    {
+        return this.#saldo;
+    }
+
+    set saldo(valor)
+    {
+        this.#saldo = valor;
+        alert(`Deposito de ${valor} na conta de numero ${this.#numConta}. Saldo atual: ${this.#saldo}`)
+    }
+
+    //depositar
+
+    //levantar
 }
