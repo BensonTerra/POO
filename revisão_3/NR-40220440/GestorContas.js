@@ -1,24 +1,30 @@
 import ContaBancaria from "./ContaBancaria.js"
 export default class GestorContas 
 {
-    contas = []
-
-    constructor()
+        constructor()
     {
-        //constructor vazio
+        this.contas = []
     }
     
     criarConta(numero, titular, saldo = 0)
     {
-        if(this.contas.find( conta => conta.))
+        const contaInArray = this.contas.find(conta => +conta.numeroConta == +numero);
+        //console.log(contaInArray)
+        //console.log(this.contas)
 
-
-
-
-        let conta  = new ContaBancaria(+numero, titular,saldo)
-        //console.log(conta)
-        this.contas.push(conta)
-        //console.table(this.contas)
+        if (contaInArray) 
+        {
+            alert(`Já existe uma conta com o número ${numero}.`);
+            return;
+        }
+        else
+        {
+            let novaConta  = new ContaBancaria(+numero, titular,saldo)
+            //console.log(conta)
+            this.contas.push(novaConta)
+            //console.table(this.contas)
+        }
+        
     }
 
     listarContas()
@@ -26,9 +32,20 @@ export default class GestorContas
         console.table(this.contas)
     }
 
-    realizarDeposito()
+    realizarDeposito(numeroConta, valor)
     {
-        console.log(this)
+        const conta = this.contas.find(conta => +conta.numeroConta == +numeroConta);
+        console.log(conta)
+
+        if(!conta)
+        {
+            alert("Conta não encontrada")
+            return
+        }
+        else
+        {
+            conta.depositar(valor)
+        }
     }
 
     realizarLevantamento()
@@ -40,4 +57,4 @@ export default class GestorContas
     {
         console.log(this)
     }
-}a
+}
