@@ -1,4 +1,4 @@
-default class ContaBancaria
+export default class ContaBancaria
 {
     #numConta = 0;
     #nomeTitular = "";
@@ -29,10 +29,24 @@ default class ContaBancaria
     set saldo(valor)
     {
         this.#saldo = valor;
+    }
+
+    depositar(valor)
+    {
+        this.#saldo += valor
         alert(`Deposito de ${valor} na conta de numero ${this.#numConta}. Saldo atual: ${this.#saldo}`)
     }
 
-    //depositar
-
-    //levantar
+    levantar(valor)
+    {
+        if (valor > this.#saldo)
+        {
+            alert(`Fundos insuficientes na conta ${this.#numConta}`)
+        }
+        else
+        {
+            this.#saldo -= valor
+            alert(`Levantamento de ${valor} na conta de numero ${this.#numConta}. Saldo atual: ${this.#saldo}`)
+        }
+    }
 }

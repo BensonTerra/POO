@@ -1,7 +1,8 @@
 import ContaBancaria from './ContaBancaria.js';
 
 export default class GestorContas {
-  constructor() {
+  constructor() 
+  {
     this.contas = [];
   }
 

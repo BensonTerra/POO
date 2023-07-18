@@ -1,38 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        table, td
-        {
-          border: 1px solid black;
-        }
-        th
-        {
-            border: 1px solid black;
-            padding: 5px;
-        }
-    </style>
+  <title>Gestão de Contas Bancárias</title>
 </head>
 
 <body>
-    <h1>Funções</h1>
-    <button id="f1">F1</button>
-    <button id="f2">F2</button>
-    <button id="f3">F3</button>
-    <button id="f4">F4</button>
-    <button id="f5">F5</button>
+  <h1>Gestão de Contas Bancárias</h1>
 
-    <h1>Simulação</h1>
-    <table id="table" class = "bordered table text-center">
-        
-    </table>
+  <h2>Criar nova conta</h2>
+  <label for="numeroContaInput">Número da Conta:</label>
+  <input type="text" id="numeroContaInput" />
+  <br />
+  <label for="nomeTitularInput">Nome do Titular:</label>
+  <input type="text" id="nomeTitularInput" />
+  <br />
+  <button id="btnCriarConta">Criar Conta</button>
 
-    <script type="module" src="./js/view/parceriaView.js"></script>
+  <h2>Realizar Depósito</h2>
+  <label for="depositoNumeroContaInput">Número da Conta:</label>
+  <input type="text" id="depositoNumeroContaInput" />
+  <br />
+  <label for="valorDepositoInput">Valor:</label>
+  <input type="text" id="valorDepositoInput" />
+  <br />
+  <button id="btnRealizarDeposito">Realizar Depósito</button>
+
+  <h2>Realizar Levantamento</h2>
+  <label for="levantamentoNumeroContaInput">Número da Conta:</label>
+  <input type="text" id="levantamentoNumeroContaInput" />
+  <br />
+  <label for="valorLevantamentoInput">Valor:</label>
+  <input type="text" id="valorLevantamentoInput" />
+  <br />
+  <button id="btnRealizarLevantamento">Realizar Levantamento</button>
+
+  <h2>Exibir Saldo</h2>
+  <label for="saldoNumeroContaInput">Número da Conta:</label>
+  <input type="text" id="saldoNumeroContaInput" />
+  <br />
+  <button id="btnExibirSaldo">Exibir Saldo</button>
+
+  <h2>Listar Contas</h2>
+  <button id="btnListarContas">Listar Contas</button>
+  <script type="module" src="index.js"></script>
+
 </body>
 
 </html>
