@@ -85,6 +85,18 @@ function renderView()
         })
     })
 
+    let buttonGo_to = document.querySelectorAll(".go_to");//console.log(buttonGo_to)
+    buttonGo_to.forEach( button => 
+    {
+        //console.log(button)
+        button.addEventListener("click", (event) => 
+        {
+            let book = books.find(book => book.titulo === event.target.id);//console.log(book)
+            book.forwardAndBackward()
+            renderView()
+        })
+    })
+
 }
 renderView()
 

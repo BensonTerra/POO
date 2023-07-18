@@ -83,8 +83,10 @@ export class Book
             console.log("Pagina atual: " + this.paginaAtual)
         }
     }
-    forwardAndBackward(tipo, val)
+    forwardAndBackward()
     {
+        let tipo = prompt(`Digite "forward" ou "backward."`)
+        let val = +prompt("Digite um numero de paginas.")
         if(tipo == "forward")
         {
             this.paginaAtual += val
