@@ -8,6 +8,9 @@ export default class GestorContas {
 
   criarConta(numeroConta, nomeTitular, saldo = 0) {
     const contaExistente = this.contas.find(conta => conta.numeroConta === numeroConta);
+    console.log(contaExistente)
+    console.log(this.contas)
+
     if (contaExistente) {
       alert(`Já existe uma conta com o número ${numeroConta}.`);
       return;
