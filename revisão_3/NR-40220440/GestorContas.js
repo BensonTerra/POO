@@ -10,14 +10,20 @@ export default class GestorContas
     
     criarConta(numero, titular, saldo = 0)
     {
-        let conta  = new ContaBancaria(numero, titular,saldo)
-        console.log(conta)
+        if(this.contas.find( conta => conta.))
+
+
+
+
+        let conta  = new ContaBancaria(+numero, titular,saldo)
+        //console.log(conta)
         this.contas.push(conta)
+        //console.table(this.contas)
     }
 
     listarContas()
     {
-        console.log(this)
+        console.table(this.contas)
     }
 
     realizarDeposito()
