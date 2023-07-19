@@ -48,13 +48,25 @@ export default class GestorContas
         }
     }
 
-    realizarLevantamento()
+    realizarLevantamento(numeroConta, valor)
     {
-        console.log(this)
+        const conta = this.contas.find(conta => +conta.numeroConta == +numeroConta);
+        console.log(conta)
+
+        if(!conta)
+        {
+            alert("Conta não encontrada")
+            return
+        }
+        else
+        {
+            conta.levantar(valor)
+        }
     }
 
-    verSaldo()
+    verSaldo(numeroConta)
     {
-        console.log(this)
+        const conta = this.contas.find(conta => +conta.numeroConta == +numeroConta);
+        console.log(conta)
     }
 }
